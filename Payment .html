@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Payment | KRINOZ SOCIAL BOOST</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<style>
+
+body{
+margin:0;
+font-family:Arial;
+background:#0f172a;
+color:white;
+text-align:center;
+}
+
+.header{
+padding:28px;
+background:linear-gradient(120deg,#6366f1,#9333ea);
+font-size:22px;
+font-weight:bold;
+}
+
+.container{padding:20px;}
+
+.box{
+background:#1e293b;
+padding:25px;
+border-radius:16px;
+max-width:360px;
+margin:auto;
+box-shadow:0 0 25px rgba(0,0,0,0.7);
+}
+
+.orderbox{
+background:#0f172a;
+padding:15px;
+border-radius:10px;
+margin-bottom:15px;
+}
+
+.qr{
+width:90%;
+max-width:260px;
+margin-top:15px;
+border-radius:10px;
+}
+
+button{
+padding:14px 22px;
+border:none;
+background:#22c55e;
+color:white;
+border-radius:10px;
+font-size:16px;
+font-weight:bold;
+margin:8px;
+cursor:pointer;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div class="header">
+Complete Payment
+</div>
+
+<div class="container">
+
+<div class="box">
+
+<div class="orderbox">
+
+<p><b>Service:</b> <span id="service"></span></p>
+
+<p><b>Quantity:</b> <span id="qty"></span></p>
+
+<p><b>Total Price:</b> ₹<span id="price"></span></p>
+
+</div>
+
+<p>Scan QR and complete payment</p>
+
+<img src="qr.png" class="qr">
+
+<br>
+
+<button onclick="copyOrder()">Copy Order Details</button>
+
+<br>
+
+<a href="https://instagram.com/kriinox">
+<button>Open Instagram DM</button>
+</a>
+
+<p style="font-size:13px;margin-top:15px;opacity:0.8;">
+After payment send screenshot + order details on Instagram
+</p>
+
+</div>
+
+</div>
+
+<script>
+
+document.getElementById("service").innerText=localStorage.getItem("service")
+
+document.getElementById("qty").innerText=localStorage.getItem("qty")
+
+document.getElementById("price").innerText=
+parseFloat(localStorage.getItem("price")).toFixed(2)
+
+function copyOrder(){
+
+let text=
+"Service: "+localStorage.getItem("service")+"\n"+
+"Quantity: "+localStorage.getItem("qty")+"\n"+
+"Amount Paid: ₹"+parseFloat(localStorage.getItem("price")).toFixed(2)
+
+navigator.clipboard.writeText(text)
+
+alert("Order details copied. Paste them in Instagram DM.")
+
+}
+
+</script>
+
+</body>
+</html>

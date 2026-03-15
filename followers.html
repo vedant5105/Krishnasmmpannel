@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Instagram Followers</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<style>
+body{background:#0f172a;color:white;text-align:center;font-family:Arial;}
+.box{background:#1e293b;padding:28px;border-radius:16px;margin:50px auto;max-width:360px;}
+input{padding:13px;width:80%;margin:10px;border-radius:10px;border:none;}
+button{padding:14px 25px;background:#22c55e;border:none;color:white;border-radius:10px;font-size:16px;font-weight:bold;}
+</style>
+</head>
+
+<body>
+
+<div class="box">
+
+<h2>Instagram Followers</h2>
+
+<p>₹289 per 1000</p>
+
+<p>Minimum order: 100</p>
+
+<input type="number" id="qty" placeholder="Enter quantity">
+
+<br>
+
+<button onclick="order()">Continue</button>
+
+</div>
+
+<script>
+
+function order(){
+
+let qty=document.getElementById("qty").value
+
+if(qty<100){
+alert("Minimum order is 100")
+return
+}
+
+let price=(qty/1000)*289
+
+localStorage.setItem("service","Instagram Followers")
+localStorage.setItem("qty",qty)
+localStorage.setItem("price",price)
+
+window.location="payment.html"
+
+}
+
+</script>
+
+</body>
+</html>
